@@ -17,5 +17,5 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-Route::middleware('api')->post('search' , 'ProductosController@search');
-Route::middleware('api')->get('/' , 'ProductosController@index');
+Route::middleware('api:cors')->post('search' , 'ProductosController@search');
+Route::middleware('api:cors')->get('/' , 'ProductosController@index');
