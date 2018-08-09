@@ -18,4 +18,4 @@ use Illuminate\Http\Request;
 // });
 
 Route::middleware('api')->post('search' , 'ProductosController@search');
-Route::middleware('api')->get('/' , 'ProductosController@index');
+Route::middleware('api')->get('search' , 'ProductosController@index');
