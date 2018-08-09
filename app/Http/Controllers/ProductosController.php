@@ -15,13 +15,13 @@ class ProductosController extends Controller
      */
     public function index()
     {
-        $productos = Producto::orderBy('cantidad','desc')->limit(20)->get();
+        $productos = Producto::orderBy('busquedas','desc')->limit(20)->get();
 
 
         foreach ($productos as $producto) {
             // $history = new History;
             $keywords = '';
-            $history = History::select('keyword')->where('producto_id', $producto->id)->orderBy('busquedas','desc')->limit(5)->get();
+            $history = History::select('keyword')->where('producto_id', $producto->id)->orderBy('cantidad','desc')->limit(5)->get();
             foreach ($history as $key => $value) {
                 $keywords .=  $value->keyword . ',';
             }
