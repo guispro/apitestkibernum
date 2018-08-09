@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Producto extends Model
 {
     protected $fillable = [
-        'nombre', 'descripcion', 'cantidad'
+        'nombre', 'descripcion', 'cantidad', 'busquedas', 'valor'
     ];
 
     public function histories(){

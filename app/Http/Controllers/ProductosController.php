@@ -21,7 +21,7 @@ class ProductosController extends Controller
         foreach ($productos as $producto) {
             // $history = new History;
             $keywords = '';
-            $history = History::select('keyword')->where('producto_id', $producto->id)->orderBy('cantidad','desc')->limit(5)->get();
+            $history = History::select('keyword')->where('producto_id', $producto->id)->orderBy('busquedas','desc')->limit(5)->get();
             foreach ($history as $key => $value) {
                 $keywords .=  $value->keyword . ',';
             }
@@ -47,13 +47,13 @@ class ProductosController extends Controller
 
         foreach ($productos as $producto) {
             $history = new History;
-            Producto::where('id', $producto->id)->increment('cantidad');
+            Producto::where('id', $producto->id)->increment('busquedas');
             if(History::where('producto_id',$producto->id)->where('keyword',$params['keyword'])->exists()){
                 $history->where('producto_id',$producto->id)->where('keyword',$params['keyword'])->increment('cantidad');
             }else{
                 $history->producto_id = $producto->id;
                 $history->keyword = $params['keyword'];
-                $history->cantidad = 1;
+                $history->busquedas = 1;
                 $history->save();
             }
         }

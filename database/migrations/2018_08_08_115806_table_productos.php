@@ -17,7 +17,9 @@ class TableProductos extends Migration
             $table->increments('id');
             $table->string('nombre', 100);
             $table->text('descripcion');
+            $table->integer('valor');
             $table->integer('cantidad');
+            $table->integer('busquedas')->default(0);
             $table->timestamps();
         });
     }
