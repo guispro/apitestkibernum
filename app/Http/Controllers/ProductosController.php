@@ -53,7 +53,7 @@ class ProductosController extends Controller
             }else{
                 $history->producto_id = $producto->id;
                 $history->keyword = $params['keyword'];
-                $history->busquedas = 1;
+                $history->cantidad = 1;
                 $history->save();
             }
         }
